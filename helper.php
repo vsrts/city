@@ -2,6 +2,7 @@
 
 class ModCityHelper{
     public static function getCity($params){
-        return 'test';
+        $cities = $params->get('cities');
+        return $cities;
     }
 }
