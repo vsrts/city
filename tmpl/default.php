@@ -3,7 +3,22 @@
 defined('_JEXEC') or die; ?>
 <?php
 
-    $listCity = explode(", ", $city);
+$db =& JFactory::getDBO();
+$database_name = "sushi";
+if ($db->select($database_name)) {
+    $query = $db->getQuery(true);
+    $query->select('*')
+        ->from('cities');
+
+    $db->setQuery($query);
+    $results = $db->loadObjectList();
+
+    print_r($results);
+
+}
+
+
+$listCity = explode(", ", $city);
     print_r($listCity);
     foreach($listCity as $cityname){
         echo "
